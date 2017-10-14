@@ -1,4 +1,4 @@
-from .celery import app
+from celery_fun.my_worker import app
 
 @app.task
 def gitclone(giturl):
