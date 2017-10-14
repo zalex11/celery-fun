@@ -5,7 +5,10 @@ app = Celery('test')
 
 #app.config_from_object('celery_fun.celeryconfig')
 app.config_from_object(celeryconfig)
-app.autodiscover_tasks()
+app.conf.task_routes = {
+				'celery_fun.tasks.*':{'queue':'abcd'},
+						}
+#app.autodiscover_tasks()
 
 if __name__ == '__main__':
 	app.start()
